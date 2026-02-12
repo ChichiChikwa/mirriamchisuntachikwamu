@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirriam Chisunta Chikwamu | Statistics & Machine Learning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0a1628;
+            --navy-light: #142240;
+            --navy-mid: #1b2d4f;
+            --gold: #c9a84c;
+            --gold-light: #e4c76b;
+            --gold-muted: #b8943f;
+            --white: #ffffff;
+            --off-white: #f8f9fb;
+            --gray-100: #f1f3f7;
+            --gray-200: #e2e6ed;
+            --gray-400: #9ba3b5;
+            --gray-600: #5a6377;
+            --gray-800: #2d3346;
+            --text: #3a4050;
+            --text-light: #6b7280;
+            --radius: 8px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 3px rgba(10, 22, 40, 0.08);
+            --shadow-md: 0 4px 16px rgba(10, 22, 40, 0.1);
+            --shadow-lg: 0 8px 30px rgba(10, 22, 40, 0.12);
+            --transition: 0.25s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.97);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+        }
+
+        nav .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        nav .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+
+        nav .logo span {
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 0.25rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gray-400);
+            font-weight: 500;
+            font-size: 0.875rem;
+            padding: 0.5rem 0.875rem;
+            border-radius: 6px;
+            transition: color var(--transition), background var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            margin-top: 64px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 6rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            border-radius: 50px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .subtitle {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.35rem;
+            color: var(--gray-400);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero .summary {
+            font-size: 1.05rem;
+            color: var(--gray-400);
+            max-width: 650px;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            background: var(--gold);
+            color: var(--navy);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background var(--transition), transform var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: border-color var(--transition), background var(--transition);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            background: rgba(201, 168, 76, 0.08);
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-meta-item {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+        }
+
+        .hero-meta-item strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+        }
+
+        /* ==================== SECTIONS ==================== */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            max-width: 600px;
+        }
+
+        /* ==================== ABOUT ==================== */
+        #about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            color: var(--text);
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .highlight-card {
+            background: var(--off-white);
+            padding: 1.25rem 1.5rem;
+            border-radius: var(--radius);
+            border-left: 3px solid var(--gold);
+        }
+
+        .highlight-card h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        /* ==================== EXPERIENCE ==================== */
+        #experience {
+            background: var(--off-white);
+        }
+
+        .exp-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 1.25rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+            transition: box-shadow var(--transition), transform var(--transition);
+        }
+
+        .exp-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .exp-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            gap: 1rem;
+        }
+
+        .exp-card h3 {
+            font-size: 1.15rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .exp-card .org {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .exp-card .date {
+            font-size: 0.8rem;
+            color: var(--gold-muted);
+            font-weight: 600;
+            white-space: nowrap;
+            padding: 0.25rem 0.75rem;
+            background: rgba(201, 168, 76, 0.08);
+            border-radius: 50px;
+        }
+
+        .exp-card ul {
+            list-style: none;
+            margin-top: 0.75rem;
+        }
+
+        .exp-card ul li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .exp-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .exp-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+            background: var(--navy);
+            color: var(--gold-light);
+        }
+
+        /* ==================== PROJECTS ==================== */
+        #projects {
+            background: var(--white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            padding: 2rem;
+            transition: box-shadow var(--transition), transform var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .project-card .project-type {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .project-card .project-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.65;
+            flex-grow: 1;
+        }
+
+        .project-card .project-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .project-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--gold-muted);
+        }
+
+        /* ==================== SKILLS ==================== */
+        #skills {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        #skills .section-label {
+            color: var(--gold);
+        }
+
+        #skills .section-title {
+            color: var(--white);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-group {
+            background: var(--navy-light);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .skill-group h3 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill-tag {
+            font-size: 0.82rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            transition: background var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: rgba(201, 168, 76, 0.15);
+            color: var(--gold-light);
+        }
+
+        /* ==================== TEACHING & EDUCATION ==================== */
+        #teaching {
+            background: var(--off-white);
+        }
+
+        .teaching-intro {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.2rem;
+            color: var(--text);
+            line-height: 1.8;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            border-left: 3px solid var(--gold);
+            padding-left: 1.5rem;
+        }
+
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .teaching-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--gray-200);
+            transition: box-shadow var(--transition);
+        }
+
+        .teaching-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .teaching-card h4 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .teaching-card .role {
+            font-size: 0.85rem;
+            color: var(--gold-muted);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .teaching-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ==================== LEADERSHIP ==================== */
+        #leadership {
+            background: var(--white);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .leadership-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.25rem;
+            border-radius: var(--radius);
+            background: var(--off-white);
+            transition: background var(--transition);
+        }
+
+        .leadership-item:hover {
+            background: var(--gray-100);
+        }
+
+        .leadership-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+
+        .leadership-item h4 {
+            font-size: 0.95rem;
+            color: var(--navy);
+            margin-bottom: 0.15rem;
+        }
+
+        .leadership-item .l-meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* ==================== CHICHASA ==================== */
+        #chichasa {
+            background: var(--off-white);
+        }
+
+        .chichasa-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            border: 1px solid var(--gray-200);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .chichasa-text h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .chichasa-text p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .chichasa-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .chichasa-stat {
+            text-align: center;
+            padding: 1.25rem;
+            background: var(--off-white);
+            border-radius: var(--radius);
+        }
+
+        .chichasa-stat .num {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .chichasa-stat .label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        /* ==================== BLOG ==================== */
+        #blog {
+            background: var(--white);
+        }
+
+        .blog-placeholder {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--off-white);
+            border-radius: var(--radius-lg);
+            border: 2px dashed var(--gray-200);
+        }
+
+        .blog-placeholder p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-placeholder .coming {
+            font-size: 0.85rem;
+            color: var(--gold-muted);
+            font-weight: 600;
+        }
+
+        /* ==================== CONTACT ==================== */
+        #contact {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        #contact .section-label {
+            color: var(--gold);
+        }
+
+        #contact .section-title {
+            color: var(--white);
+        }
+
+        #contact .section-subtitle {
+            color: var(--gray-400);
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: var(--navy-light);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: border-color var(--transition), background var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--gold);
+            background: var(--navy-mid);
+        }
+
+        .contact-icon {
+            font-size: 1.15rem;
+        }
+
+        .contact-location {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--gray-400);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--navy);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--gray-400);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* ==================== HONORS STRIP ==================== */
+        .honors-strip {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .honors-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .honors-strip h3 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .honors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .honor-tag {
+            font-size: 0.82rem;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            background: var(--off-white);
+            color: var(--text);
+            font-weight: 500;
+            border: 1px solid var(--gray-200);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .chichasa-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 1rem 2rem 1.5rem;
+                border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-card-header {
+                flex-direction: column;
+            }
+
+            .chichasa-card {
+                padding: 2rem;
+            }
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav>
+        <div class="nav-inner">
+            <div class="logo">MCK<span>.</span></div>
+            <button class="mobile-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#chichasa">Chichasa</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-label">Open to Opportunities</div>
+            <h1>Mirriam Chisunta Chikwamu</h1>
+            <div class="subtitle">Statistics & Machine Learning | Applied Research</div>
+            <p class="summary">Building rigorous analytical solutions that produce reliable insights from real-world data. Experienced across sports analytics, economic statistics, computational biology, and symbolic AI.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">Get in Touch</a>
+                <a href="#" class="btn-outline" id="resume-download">Download Resume</a>
+                <!-- TODO: Replace "#" with your actual resume PDF link -->
+            </div>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <strong>5+</strong> Research Projects
+                </div>
+                <div class="hero-meta-item">
+                    <strong>4</strong> Conference Presentations
+                </div>
+                <div class="hero-meta-item">
+                    <strong>4</strong> Industries
+                </div>
+                <div class="hero-meta-item">
+                    <strong>3.8</strong> GPA
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">About</div>
+                <h2 class="section-title">Who I Am</h2>
+            </div>
+            <div class="about-grid fade-in">
+                <div class="about-text">
+                    <p>I'm a Mathematics-Statistics graduate from Whitman College, currently working as a Symbolic AI Research Trainee at the Naval Postgraduate School through the Oak Ridge Institute for Science and Education. My work spans formal logic, machine learning, economic statistics, and computational biology.</p>
+                    <p>Originally from Zambia, I bring a cross-cultural perspective to problem-solving. My career interests range from data science and ML/AI engineering to consulting and actuarial science -- any role where I can use quantitative methods to drive meaningful decisions and positive impact.</p>
+                    <p>I believe strongly in making technical knowledge accessible. Whether redesigning survey forms at the Zambia Statistical Agency or translating automated theorem proofs into plain language for military stakeholders, I focus on bridging the gap between rigorous methods and practical understanding.</p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <h4>Education</h4>
+                        <p>B.A. Mathematics-Statistics, Whitman College (3.8 GPA). Minor: Economics. Transferred from Albertus Magnus College (3.97 GPA).</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Current Role</h4>
+                        <p>Symbolic AI Research Trainee at Naval Postgraduate School (ORISE), Monterey, CA.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Interests</h4>
+                        <p>Data Science, ML/AI, Applied Statistics, Consulting, Actuarial Science, Catastrophe Risk Modeling.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Location</h4>
+                        <p>Goodyear, AZ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Experience</div>
+                <h2 class="section-title">Research & Professional Experience</h2>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-card-header">
+                    <div>
+                        <h3>Symbolic AI Research Trainee</h3>
+                        <div class="org">Naval Postgraduate School | Oak Ridge Institute for Science and Education</div>
+                    </div>
+                    <span class="date">Jul 2025 - Present</span>
+                </div>
+                <ul>
+                    <li>Engineered formal logic representations by translating natural language into SUO-KIF axioms for SUMO ontology, with approved definitions integrated into SigmaKEE's live production instance</li>
+                    <li>Built Java-based proof translation system converting ATP outputs into Basic English, enabling non-technical military stakeholders to interpret formally verified reasoning</li>
+                    <li>Evaluated 400+ sentences for semantic validity to create labeled dataset for validating logical inference pipelines</li>
+                    <li>Integrated LLMs via Ollama to paraphrase ATP proofs while maintaining mathematical guarantees</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Formal Logic</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">LLM Integration</span>
+                    <span class="tag">NLP</span>
+                    <span class="tag">SUMO / SUO-KIF</span>
+                </div>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-card-header">
+                    <div>
+                        <h3>Statistician Intern</h3>
+                        <div class="org">Zambia Statistical Agency | Economic and Financial Statistics Division</div>
+                    </div>
+                    <span class="date">Aug 2024 - Sept 2024</span>
+                </div>
+                <ul>
+                    <li>Identified and flagged 100+ pricing anomalies in 1,000+ data points through cross-referencing with historical baselines, preventing corrupted data from affecting Zambia's August 2024 national economic indicators</li>
+                    <li>Redesigned legacy digital forms using SQL/Access database principles; increased throughput from 60 to 200 surveys/day (3.3x improvement), completing 4-week digitization project in 1 week</li>
+                    <li>Designed DID framework to examine climate shock impacts on gendered household consumption</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Survey Design</span>
+                    <span class="tag">CPI Analysis</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Data Quality</span>
+                </div>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-card-header">
+                    <div>
+                        <h3>Sports Analytics Fellow</h3>
+                        <div class="org">Carnegie Mellon University | Dept. of Statistics & Data Science</div>
+                    </div>
+                    <span class="date">Jun 2024 - Jul 2024</span>
+                </div>
+                <ul>
+                    <li>Collaborated with Pittsburgh Penguins R&D to develop Weighted Mean Change consistency metric for NHL forwards using PCA-weighted z-scores across 200+ players over 8 seasons</li>
+                    <li>Applied 4-quadrant clustering to categorize players by skill vs. consistency, revealing salary decision patterns</li>
+                    <li>Presented findings at CMU Summer Showcase and Academic Data Science Alliance Conference (Ann Arbor)</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">PCA</span>
+                    <span class="tag">Clustering</span>
+                    <span class="tag">R</span>
+                    <span class="tag">Sports Analytics</span>
+                </div>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-card-header">
+                    <div>
+                        <h3>Rosetta Commons Research Intern</h3>
+                        <div class="org">Rutgers University | Institute for Quantitative Biomedicine, Khare Lab</div>
+                    </div>
+                    <span class="date">Jun 2023 - Aug 2023</span>
+                </div>
+                <ul>
+                    <li>Performed computational analysis of 3C protease using MMseq2 for homology search across ~253M UniProt entries</li>
+                    <li>Identified 5 promising enzyme variants for experimental validation, bridging bioinformatics predictions to wet lab therapeutic design</li>
+                    <li>Presented at Rosetta Commons Research Conference (Leavenworth, WA)</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Bioinformatics</span>
+                    <span class="tag">Protein Analysis</span>
+                    <span class="tag">Computational Biology</span>
+                </div>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-card-header">
+                    <div>
+                        <h3>Data Analysis Micro Intern</h3>
+                        <div class="org">Global Forest Watch with iXperience</div>
+                    </div>
+                    <span class="date">Jan 2022</span>
+                </div>
+                <ul>
+                    <li>Analyzed global deforestation patterns using Python and SQL, identifying top 10 countries with highest tree cover loss rates</li>
+                    <li>Synthesized findings into report with actionable conservation insights and policy recommendations</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Data Analysis</span>
+                </div>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-card-header">
+                    <div>
+                        <h3>Writer & Editor, Technology Services</h3>
+                        <div class="org">Whitman College</div>
+                    </div>
+                    <span class="date">Aug 2023 - Dec 2024</span>
+                </div>
+                <ul>
+                    <li>Led development of comprehensive technology guides and recommendations through cross-functional collaboration</li>
+                    <li>Researched and evaluated emerging software and AI tools to enhance digital literacy across campus</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Technical Writing</span>
+                    <span class="tag">Digital Literacy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Projects</div>
+                <h2 class="section-title">Selected Projects</h2>
+                <p class="section-subtitle">A growing portfolio of work across data science, ML, and applied statistics.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-type">Senior Thesis</div>
+                    <h3>Predicting NHL Forward Performance Using Random Forests</h3>
+                    <div class="project-meta">Whitman College | Sep - Dec 2024</div>
+                    <p>Built Random Forest models (R&sup2; = 0.90) predicting NHL forward salary cap, contract length, and performance consistency, outperforming traditional ARIMA (R&sup2; = 0.60). Integrated Tango-adjusted metrics and custom Weighted Mean Change framework. Built interactive RShiny dashboard for stakeholder exploration.</p>
+                    <div class="tags">
+                        <span class="tag">Random Forests</span>
+                        <span class="tag">R</span>
+                        <span class="tag">RShiny</span>
+                        <span class="tag">Sports Analytics</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Project &rarr;</a>
+                        <!-- TODO: Replace with actual project link -->
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-type">Hackathon Winner</div>
+                    <h3>Digital Heritage Archive</h3>
+                    <div class="project-meta">Whitman College Hackathon | Apr 2024</div>
+                    <p>Built interactive world map and cultural heritage recommendation system by fine-tuning Gemini Vision Pro 1.2 for image-based destination recognition. Won Whitman College's inaugural hackathon. Led cross-functional team through execution and presented AI adoption strategy.</p>
+                    <div class="tags">
+                        <span class="tag">Gemini API</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Computer Vision</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">GitHub &rarr;</a>
+                        <a href="#" class="project-link">Live App &rarr;</a>
+                        <!-- TODO: Replace with actual links -->
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-type">Research</div>
+                    <h3>NHL Player Consistency Metrics</h3>
+                    <div class="project-meta">Carnegie Mellon University | Summer 2024</div>
+                    <p>Developed Weighted Mean Change consistency metric using PCA-weighted z-scores and 4-quadrant clustering to categorize 200+ NHL forwards by skill vs. consistency. Collaboration with Pittsburgh Penguins R&D.</p>
+                    <div class="tags">
+                        <span class="tag">PCA</span>
+                        <span class="tag">Clustering</span>
+                        <span class="tag">R</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Project &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-type">Applied Statistics</div>
+                    <h3>Zambian Economic & Climate Analysis</h3>
+                    <div class="project-meta">Whitman College + ZamStats | 2023 - 2024</div>
+                    <p>Applied statistical methods to Zambian contexts: cholera outbreak modeling, maize output analysis, climate shock impact studies, and CPI data quality improvement. Partnership with Zambia Statistical Agency.</p>
+                    <div class="tags">
+                        <span class="tag">Public Health</span>
+                        <span class="tag">Agriculture</span>
+                        <span class="tag">Climate</span>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-type">Computational Biology</div>
+                    <h3>3C Protease Bioinformatic Analysis</h3>
+                    <div class="project-meta">Rutgers University | Summer 2023</div>
+                    <p>Homology search across 253M viral protein entries using MMseq2. Identified 5 enzyme variants for experimental validation, bridging computational predictions to therapeutic applications.</p>
+                    <div class="tags">
+                        <span class="tag">MMseq2</span>
+                        <span class="tag">Bioinformatics</span>
+                        <span class="tag">Protein Engineering</span>
+                    </div>
+                </div>
+
+                <!-- ADD NEW PROJECTS HERE
+                <div class="project-card fade-in">
+                    <div class="project-type">Category</div>
+                    <h3>Project Title</h3>
+                    <div class="project-meta">Organization | Date</div>
+                    <p>Description of the project.</p>
+                    <div class="tags">
+                        <span class="tag">Tag1</span>
+                        <span class="tag">Tag2</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Project &rarr;</a>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Skills</div>
+                <h2 class="section-title">Technical Toolkit</h2>
+            </div>
+
+            <div class="skills-grid fade-in">
+                <div class="skill-group">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">SAS</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>ML / AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Random Forests</span>
+                        <span class="skill-tag">CNNs</span>
+                        <span class="skill-tag">ANNs</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Statistical Methods</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">A/B Testing</span>
+                        <span class="skill-tag">ANOVA</span>
+                        <span class="skill-tag">Regression (Linear, Logistic, LASSO, Ridge)</span>
+                        <span class="skill-tag">PCA</span>
+                        <span class="skill-tag">SVMs</span>
+                        <span class="skill-tag">k-NN</span>
+                        <span class="skill-tag">Clustering (k-Means, DBSCAN, Hierarchical)</span>
+                        <span class="skill-tag">Hypothesis Testing</span>
+                        <span class="skill-tag">DOE</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Data Science & Viz</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">pandas</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Plotly</span>
+                        <span class="skill-tag">ggplot2</span>
+                        <span class="skill-tag">tidyverse</span>
+                        <span class="skill-tag">dplyr</span>
+                        <span class="skill-tag">RShiny</span>
+                        <span class="skill-tag">Quarto</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Knowledge Representation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SUMO</span>
+                        <span class="skill-tag">SUO-KIF</span>
+                        <span class="skill-tag">E-Prover</span>
+                        <span class="skill-tag">Vampire</span>
+                        <span class="skill-tag">SigmaKEE</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Access</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Mosaic</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TEACHING & EDUCATION ==================== -->
+    <section id="teaching">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Teaching & Education</div>
+                <h2 class="section-title">A Passion for Making Knowledge Accessible</h2>
+            </div>
+
+            <p class="teaching-intro fade-in">
+                From tutoring neighborhood children in Zambia to leading supported study halls in college, I've always believed that education is most powerful when it meets people where they are. My teaching experience spans mathematics, technology, and mentoring -- each role reinforcing my commitment to making complex ideas understandable and actionable.
+            </p>
+
+            <div class="teaching-grid">
+                <div class="teaching-card fade-in">
+                    <h4>Mathematics Tutor & Teaching Assistant</h4>
+                    <div class="role">Whitman College | Aug 2023 - Dec 2024</div>
+                    <p>Provided advanced support in Statistics, Statistical Modeling, and Calculus I-III. Facilitated learning sessions connecting mathematical concepts to real-world applications.</p>
+                </div>
+
+                <div class="teaching-card fade-in">
+                    <h4>Lead Academic Tutor</h4>
+                    <div class="role">Albertus Magnus College | Aug 2021 - Dec 2022</div>
+                    <p>Supervised 30 student tutors and expanded the supported study hall program, resulting in 150+ increased student appointments. Provided tailored instruction in calculus, probability, differential equations, and statistical methods.</p>
+                </div>
+
+                <div class="teaching-card fade-in">
+                    <h4>Technology Tutor</h4>
+                    <div class="role">Albertus Magnus College | Aug 2022 - Dec 2022</div>
+                    <p>Supported 100+ clients with educational technology tools (Canvas, WordPress, Microsoft Teams). Developed workshops and created accessible learning resources to enhance digital literacy.</p>
+                </div>
+
+                <div class="teaching-card fade-in">
+                    <h4>STEM Mentor/Tutor</h4>
+                    <div class="role">All Saints Academy | Jun 2021 - Aug 2021</div>
+                    <p>Supervised and educated 30 elementary and middle school students, combining academic support in mathematics and English with safe recreational activities.</p>
+                </div>
+
+                <div class="teaching-card fade-in">
+                    <h4>Senior Counselor</h4>
+                    <div class="role">LEAP | Summer 2022</div>
+                    <p>Led groups of 20+ children as teacher, mentor, and role model. Mentored high school junior counselors. Trained in CPR, conflict resolution, and trauma-informed education.</p>
+                </div>
+
+                <div class="teaching-card fade-in">
+                    <h4>Swimming Instructor</h4>
+                    <div class="role">Community Service</div>
+                    <p>Taught swimming lessons to underrepresented kids, breaking down barriers to aquatic sports and building water safety skills in underserved communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LEADERSHIP ==================== -->
+    <section id="leadership">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Leadership & Service</div>
+                <h2 class="section-title">Community & Impact</h2>
+            </div>
+
+            <div class="leadership-grid fade-in">
+                <div class="leadership-item">
+                    <div class="leadership-icon">&#9733;</div>
+                    <div>
+                        <h4>Vice President, Black Student Union</h4>
+                        <div class="l-meta">Albertus Magnus College | 2021 - 2022</div>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-icon">&#9733;</div>
+                    <div>
+                        <h4>Resident Assistant</h4>
+                        <div class="l-meta">Albertus Magnus College | 2021 - 2022</div>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-icon">&#9733;</div>
+                    <div>
+                        <h4>Events Coordinator, African Student Assoc.</h4>
+                        <div class="l-meta">Whitman College | 2023 - 2024</div>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-icon">&#9733;</div>
+                    <div>
+                        <h4>Co-Lead, InterVarsity Christian Fellowship</h4>
+                        <div class="l-meta">Whitman College | 2023 - 2024</div>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-icon">&#9733;</div>
+                    <div>
+                        <h4>NCAA Div. III Swimmer & All-Academic Team</h4>
+                        <div class="l-meta">Albertus Magnus College | 2021 - 2022</div>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-icon">&#9733;</div>
+                    <div>
+                        <h4>Falcon Leadership Advancement Group</h4>
+                        <div class="l-meta">Whitman College | 2023 - 2024</div>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-icon">&#9733;</div>
+                    <div>
+                        <h4>Social Media Officer, HERZ NGO</h4>
+                        <div class="l-meta">Remote | 2021 - Present</div>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-icon">&#9733;</div>
+                    <div>
+                        <h4>Member, Black in AI</h4>
+                        <div class="l-meta">Professional Association</div>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-icon">&#9733;</div>
+                    <div>
+                        <h4>Member, Women in Data Science & Statistics</h4>
+                        <div class="l-meta">Professional Association</div>
+                    </div>
+                </div>
+
+                <div class="leadership-item">
+                    <div class="leadership-icon">&#9733;</div>
+                    <div>
+                        <h4>Member, Intl. Assoc. of Black Actuaries</h4>
+                        <div class="l-meta">Professional Association</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HONORS STRIP ==================== -->
+    <div class="honors-strip">
+        <div class="honors-inner">
+            <h3>Honors & Awards</h3>
+            <div class="honors-list">
+                <span class="honor-tag">IABA Scholarship (2 years)</span>
+                <span class="honor-tag">NABA Student Achievement Award (2x)</span>
+                <span class="honor-tag">President's List (2021, 2022)</span>
+                <span class="honor-tag">Dean's List (5 semesters)</span>
+                <span class="honor-tag">Whitman Internship Grant</span>
+                <span class="honor-tag">Falcon Service & Leadership Award</span>
+                <span class="honor-tag">de Ricci Award (Honors Program)</span>
+                <span class="honor-tag">NCAA All-Academic Team (2x)</span>
+                <span class="honor-tag">STEM Scholar, Dartmouth College</span>
+                <span class="honor-tag">Fatima Honours Board</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CHICHASA ==================== -->
+    <section id="chichasa">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Social Impact</div>
+                <h2 class="section-title">Chichasa NGO</h2>
+                <p class="section-subtitle">Co-founded in 2019 to address gender equality, climate action, and quality education in Zambia.</p>
+            </div>
+
+            <div class="chichasa-card fade-in">
+                <div class="chichasa-text">
+                    <h3>Youth-Led Impact in Zambia</h3>
+                    <p>After graduating high school, I co-founded Chichasa, a youth-led NGO addressing urgent community needs. What started as a grassroots initiative has grown into sustainable infrastructure serving thousands.</p>
+                    <p>Our work spans market cleanup campaigns, educational tutoring programs, orphanage support, COVID-19 mask production, environmental sustainability initiatives, and gender equality advocacy.</p>
+                    <a href="https://www.chichasa.org" target="_blank" class="btn-primary" style="margin-top: 0.5rem;">Visit Chichasa.org &rarr;</a>
+                </div>
+                <div class="chichasa-stats">
+                    <div class="chichasa-stat">
+                        <div class="num">2,000+</div>
+                        <div class="label">Community Members Served</div>
+                    </div>
+                    <div class="chichasa-stat">
+                        <div class="num">3</div>
+                        <div class="label">UN SDGs Addressed</div>
+                    </div>
+                    <div class="chichasa-stat">
+                        <div class="num">50+</div>
+                        <div class="label">Orphanage Children Supported</div>
+                    </div>
+                    <div class="chichasa-stat">
+                        <div class="num">2019</div>
+                        <div class="label">Founded</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BLOG ==================== -->
+    <section id="blog">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Writing</div>
+                <h2 class="section-title">Blog & Articles</h2>
+            </div>
+
+            <div class="blog-placeholder fade-in">
+                <p>Project write-ups, technical articles, and reflections coming soon.</p>
+                <div class="coming">Check back for updates</div>
+            </div>
+
+            <!-- ADD BLOG POSTS HERE when ready:
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-type">Article</div>
+                    <h3>Blog Post Title</h3>
+                    <div class="project-meta">Date</div>
+                    <p>Brief description or excerpt.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Read More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <!-- ==================== CONFERENCES ==================== -->
+    <section id="conferences" style="background: var(--off-white);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Presentations</div>
+                <h2 class="section-title">Conferences & Talks</h2>
+            </div>
+
+            <div class="teaching-grid">
+                <div class="teaching-card fade-in">
+                    <h4>Academic Data Science Alliance Conference</h4>
+                    <div class="role">Poster Presentation | Ann Arbor, MI | Oct 2024</div>
+                    <p>Analyzing Consistency Among NHL Forwards' Performance</p>
+                </div>
+
+                <div class="teaching-card fade-in">
+                    <h4>IABA Case Study Presentation</h4>
+                    <div class="role">Philadelphia, PA | Aug 2024</div>
+                    <p>Insurance Products for Underserved Populations</p>
+                </div>
+
+                <div class="teaching-card fade-in">
+                    <h4>CMU Summer Project Showcase</h4>
+                    <div class="role">Poster Presentation | Pittsburgh, PA | Jul 2024</div>
+                    <p>Analyzing Consistency Among NHL Forwards' Performance</p>
+                </div>
+
+                <div class="teaching-card fade-in">
+                    <h4>Rosetta Commons Research Conference</h4>
+                    <div class="role">Poster Presentation | Leavenworth, WA | Aug 2023</div>
+                    <p>Enhancing Site-Specific Cleavage by Benchmark Protease Enzymes through Bioinformatic Analysis of 3C Protease</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Contact</div>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Interested in collaboration, opportunities, or just want to talk data? I'd love to hear from you.</p>
+            </div>
+
+            <div class="contact-grid fade-in">
+                <a href="mailto:chikwamm@whitman.edu" class="contact-item">
+                    <span class="contact-icon">&#9993;</span> chikwamm@whitman.edu
+                </a>
+                <a href="https://linkedin.com/in/Chisunta-Chikwamu" target="_blank" class="contact-item">
+                    <span class="contact-icon">&#9741;</span> LinkedIn
+                </a>
+                <a href="https://github.com/chisunta" target="_blank" class="contact-item">
+                    <span class="contact-icon">&lt;/&gt;</span> GitHub
+                </a>
+                <a href="https://www.chichasa.org" target="_blank" class="contact-item">
+                    <span class="contact-icon">&#9830;</span> Chichasa.org
+                </a>
+            </div>
+
+            <div class="contact-location">
+                Goodyear, AZ | Originally from Zambia
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <p>&copy; 2025 Mirriam Chisunta Chikwamu. Built with purpose.</p>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                // Close mobile nav
+                document.querySelector('nav ul').classList.remove('open');
+            });
+        });
+
+        // Scroll-triggered fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
