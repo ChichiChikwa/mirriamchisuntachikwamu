@@ -6,7 +6,7 @@
     <title>Mirriam Chisunta Chikwamu | Statistics & Machine Learning</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -38,9 +38,7 @@
             --transition: 0.25s ease;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -72,28 +70,38 @@
         }
 
         nav .logo {
-            font-size: 1.1rem;
-            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
             color: var(--white);
-            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
         }
 
-        nav .logo span {
-            color: var(--gold);
+        nav .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid rgba(201, 168, 76, 0.4);
         }
+
+        nav .logo span { color: var(--gold); }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 0.25rem;
+            gap: 0.15rem;
         }
 
         nav a {
             text-decoration: none;
             color: var(--gray-400);
             font-weight: 500;
-            font-size: 0.875rem;
-            padding: 0.5rem 0.875rem;
+            font-size: 0.82rem;
+            padding: 0.4rem 0.7rem;
             border-radius: 6px;
             transition: color var(--transition), background var(--transition);
         }
@@ -117,7 +125,7 @@
             margin-top: 64px;
             background: var(--navy);
             color: var(--white);
-            padding: 6rem 2rem 5rem;
+            padding: 5rem 2rem 4.5rem;
             position: relative;
             overflow: hidden;
         }
@@ -133,64 +141,77 @@
             border-radius: 50%;
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
         .hero-inner {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
         }
+
+        .hero-text { max-width: 700px; }
 
         .hero-label {
             display: inline-block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 1.25rem;
-            padding: 0.4rem 1rem;
+            margin-bottom: 1rem;
+            padding: 0.35rem 0.9rem;
             border: 1px solid rgba(201, 168, 76, 0.3);
             border-radius: 50px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.25rem;
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 1rem;
+            margin-bottom: 0.35rem;
             letter-spacing: -0.02em;
+        }
+
+        .hero .pronunciation {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+            font-style: italic;
         }
 
         .hero .subtitle {
             font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 1.35rem;
-            color: var(--gray-400);
-            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            color: var(--gold-light);
+            margin-bottom: 0.75rem;
             font-weight: 400;
         }
 
-        .hero .summary {
-            font-size: 1.05rem;
+        .hero .roles-tagline {
+            font-size: 0.88rem;
             color: var(--gray-400);
-            max-width: 650px;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .hero .roles-tagline strong {
+            color: rgba(255,255,255,0.7);
+            font-weight: 600;
+        }
+
+        .hero .summary {
+            font-size: 1rem;
+            color: var(--gray-400);
             line-height: 1.7;
-            margin-bottom: 2rem;
+            margin-bottom: 1.75rem;
         }
 
         .hero-actions {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
             align-items: center;
         }
@@ -199,13 +220,13 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.75rem 1.75rem;
+            padding: 0.7rem 1.5rem;
             background: var(--gold);
             color: var(--navy);
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: background var(--transition), transform var(--transition);
         }
 
@@ -218,13 +239,13 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.75rem 1.75rem;
+            padding: 0.7rem 1.5rem;
             background: transparent;
             color: var(--white);
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: border-color var(--transition), background var(--transition);
         }
@@ -237,37 +258,114 @@
         .hero-meta {
             display: flex;
             gap: 2rem;
-            margin-top: 3rem;
-            padding-top: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 1.75rem;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .hero-meta-item {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--gray-400);
         }
 
         .hero-meta-item strong {
             display: block;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--gold);
             font-weight: 700;
-            margin-bottom: 0.15rem;
+            margin-bottom: 0.1rem;
         }
 
-        /* ==================== SECTIONS ==================== */
-        section {
-            padding: 5rem 2rem;
+        /* Photo placeholder */
+        .hero-photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: var(--navy-light);
+            border: 3px solid rgba(201, 168, 76, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
         }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .currently {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--gray-400);
+            margin-bottom: 1.5rem;
+            padding: 0.6rem 1rem;
+            background: rgba(201, 168, 76, 0.06);
+            border-left: 2px solid var(--gold);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .currently-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            background: var(--navy);
+            color: var(--gold);
+            border: 1.5px solid rgba(201, 168, 76, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+            z-index: 999;
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+        }
+
+
+        /* ==================== SECTIONS ==================== */
+        section { padding: 5rem 2rem; }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        .section-header {
-            margin-bottom: 3rem;
-        }
+        .section-header { margin-bottom: 3rem; }
 
         .section-label {
             font-size: 0.75rem;
@@ -293,55 +391,80 @@
         }
 
         /* ==================== ABOUT ==================== */
-        #about {
-            background: var(--white);
-        }
+        #about { background: var(--white); }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 3.5rem;
             align-items: start;
         }
 
         .about-text p {
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             line-height: 1.8;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.15rem;
             color: var(--text);
         }
 
-        .about-highlights {
+        .about-sidebar {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
 
-        .highlight-card {
+        .sidebar-card {
             background: var(--off-white);
-            padding: 1.25rem 1.5rem;
+            padding: 1.15rem 1.35rem;
             border-radius: var(--radius);
             border-left: 3px solid var(--gold);
         }
 
-        .highlight-card h4 {
-            font-size: 0.85rem;
+        .sidebar-card h4 {
+            font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--gold-muted);
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
         }
 
-        .highlight-card p {
-            font-size: 0.95rem;
+        .sidebar-card p {
+            font-size: 0.9rem;
             color: var(--text);
+            line-height: 1.5;
+        }
+
+        /* Value proposition cards */
+        .value-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .value-card {
+            background: var(--off-white);
+            padding: 1.15rem;
+            border-radius: var(--radius);
+            border-top: 3px solid var(--gold);
+        }
+
+        .value-card h4 {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+        }
+
+        .value-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
         }
 
         /* ==================== EXPERIENCE ==================== */
-        #experience {
-            background: var(--off-white);
-        }
+        #experience { background: var(--off-white); }
 
         .exp-card {
             background: var(--white);
@@ -430,13 +553,11 @@
         }
 
         /* ==================== PROJECTS ==================== */
-        #projects {
-            background: var(--white);
-        }
+        #projects { background: var(--white); }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
             gap: 1.5rem;
         }
 
@@ -465,7 +586,7 @@
         }
 
         .project-card h3 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--navy);
             margin-bottom: 0.5rem;
             font-weight: 700;
@@ -478,7 +599,7 @@
         }
 
         .project-card p {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--text);
             line-height: 1.65;
             flex-grow: 1;
@@ -500,9 +621,7 @@
             transition: color var(--transition);
         }
 
-        .project-link:hover {
-            color: var(--gold-muted);
-        }
+        .project-link:hover { color: var(--gold-muted); }
 
         /* ==================== SKILLS ==================== */
         #skills {
@@ -510,13 +629,8 @@
             color: var(--white);
         }
 
-        #skills .section-label {
-            color: var(--gold);
-        }
-
-        #skills .section-title {
-            color: var(--white);
-        }
+        #skills .section-label { color: var(--gold); }
+        #skills .section-title { color: var(--white); }
 
         .skills-grid {
             display: grid;
@@ -562,19 +676,35 @@
         }
 
         /* ==================== TEACHING & EDUCATION ==================== */
-        #teaching {
-            background: var(--off-white);
+        #teaching { background: var(--off-white); }
+
+        .teaching-quote {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--navy);
+            line-height: 1.7;
+            max-width: 700px;
+            margin-bottom: 0.5rem;
+            padding: 1.5rem 2rem;
+            background: var(--white);
+            border-left: 3px solid var(--gold);
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .teaching-quote-attr {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
         }
 
         .teaching-intro {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             color: var(--text);
             line-height: 1.8;
-            max-width: 700px;
+            max-width: 750px;
             margin-bottom: 2.5rem;
-            border-left: 3px solid var(--gold);
-            padding-left: 1.5rem;
         }
 
         .teaching-grid {
@@ -591,9 +721,7 @@
             transition: box-shadow var(--transition);
         }
 
-        .teaching-card:hover {
-            box-shadow: var(--shadow-md);
-        }
+        .teaching-card:hover { box-shadow: var(--shadow-md); }
 
         .teaching-card h4 {
             font-size: 1rem;
@@ -614,10 +742,48 @@
             line-height: 1.6;
         }
 
-        /* ==================== LEADERSHIP ==================== */
-        #leadership {
-            background: var(--white);
+        /* ==================== FUN FACTS ==================== */
+        #fun-facts { background: var(--white); }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
         }
+
+        .fact-card {
+            background: var(--off-white);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .fact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .fact-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .fact-card h4 {
+            font-size: 0.9rem;
+            color: var(--navy);
+            margin-bottom: 0.35rem;
+            font-weight: 700;
+        }
+
+        .fact-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* ==================== LEADERSHIP ==================== */
+        #leadership { background: var(--off-white); }
 
         .leadership-grid {
             display: grid;
@@ -630,13 +796,12 @@
             gap: 1rem;
             padding: 1.25rem;
             border-radius: var(--radius);
-            background: var(--off-white);
-            transition: background var(--transition);
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            transition: box-shadow var(--transition);
         }
 
-        .leadership-item:hover {
-            background: var(--gray-100);
-        }
+        .leadership-item:hover { box-shadow: var(--shadow-sm); }
 
         .leadership-icon {
             width: 40px;
@@ -647,11 +812,12 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 1rem;
+            font-size: 0.9rem;
+            color: var(--gold);
         }
 
         .leadership-item h4 {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--navy);
             margin-bottom: 0.15rem;
         }
@@ -662,12 +828,10 @@
         }
 
         /* ==================== CHICHASA ==================== */
-        #chichasa {
-            background: var(--off-white);
-        }
+        #chichasa { background: var(--white); }
 
         .chichasa-card {
-            background: var(--white);
+            background: var(--off-white);
             border-radius: var(--radius-lg);
             padding: 3rem;
             border: 1px solid var(--gray-200);
@@ -699,7 +863,7 @@
         .chichasa-stat {
             text-align: center;
             padding: 1.25rem;
-            background: var(--off-white);
+            background: var(--white);
             border-radius: var(--radius);
         }
 
@@ -715,104 +879,93 @@
             margin-top: 0.25rem;
         }
 
-        /* ==================== BLOG ==================== */
-        #blog {
+        /* ==================== WRITING ==================== */
+        #writing { background: var(--off-white); }
+
+        .writing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .writing-card {
             background: var(--white);
+            padding: 1.75rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-200);
+            transition: box-shadow var(--transition);
         }
 
-        .blog-placeholder {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: var(--off-white);
-            border-radius: var(--radius-lg);
-            border: 2px dashed var(--gray-200);
-        }
+        .writing-card:hover { box-shadow: var(--shadow-md); }
 
-        .blog-placeholder p {
-            color: var(--text-light);
-            font-size: 1rem;
+        .writing-card .writing-type {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold-muted);
             margin-bottom: 0.5rem;
         }
 
-        .blog-placeholder .coming {
-            font-size: 0.85rem;
-            color: var(--gold-muted);
-            font-weight: 600;
+        .writing-card h4 {
+            font-size: 1.05rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
         }
 
-        /* ==================== CONTACT ==================== */
-        #contact {
-            background: var(--navy);
-            color: var(--white);
-        }
-
-        #contact .section-label {
-            color: var(--gold);
-        }
-
-        #contact .section-title {
-            color: var(--white);
-        }
-
-        #contact .section-subtitle {
-            color: var(--gray-400);
-        }
-
-        .contact-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 1.5rem;
-            background: var(--navy-light);
-            border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            text-decoration: none;
-            color: var(--white);
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: border-color var(--transition), background var(--transition);
-        }
-
-        .contact-item:hover {
-            border-color: var(--gold);
-            background: var(--navy-mid);
-        }
-
-        .contact-icon {
-            font-size: 1.15rem;
-        }
-
-        .contact-location {
-            margin-top: 2rem;
+        .writing-card p {
             font-size: 0.9rem;
-            color: var(--gray-400);
+            color: var(--text-light);
+            line-height: 1.6;
+            font-style: italic;
         }
 
-        /* ==================== FOOTER ==================== */
-        footer {
+        /* ==================== BEYOND THE NUMBERS ==================== */
+        #beyond {
             background: var(--navy);
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            color: var(--gray-400);
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.85rem;
+            color: var(--white);
         }
 
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
+        #beyond .section-label { color: var(--gold); }
+        #beyond .section-title { color: var(--white); }
+        #beyond .section-subtitle { color: var(--gray-400); }
+
+        .beyond-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .beyond-card {
+            background: var(--navy-light);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: border-color var(--transition);
+        }
+
+        .beyond-card:hover { border-color: rgba(201,168,76,0.3); }
+
+        .beyond-card .beyond-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .beyond-card h4 {
+            font-size: 0.95rem;
+            color: var(--white);
+            margin-bottom: 0.35rem;
+        }
+
+        .beyond-card p {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            line-height: 1.55;
         }
 
         /* ==================== HONORS STRIP ==================== */
         .honors-strip {
-            background: var(--white);
+            background: var(--off-white);
             padding: 3rem 2rem;
             border-top: 1px solid var(--gray-200);
         }
@@ -841,39 +994,88 @@
             font-size: 0.82rem;
             padding: 0.4rem 1rem;
             border-radius: 50px;
-            background: var(--off-white);
+            background: var(--white);
             color: var(--text);
             font-weight: 500;
             border: 1px solid var(--gray-200);
         }
 
+        /* ==================== CONTACT ==================== */
+        #contact {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        #contact .section-label { color: var(--gold); }
+        #contact .section-title { color: var(--white); }
+        #contact .section-subtitle { color: var(--gray-400); }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: var(--navy-light);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: border-color var(--transition), background var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--gold);
+            background: var(--navy-mid);
+        }
+
+        .contact-icon { font-size: 1.15rem; }
+
+        .contact-location {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--gray-400);
+        }
+
+        /* ==================== CONFERENCES ==================== */
+        #conferences { background: var(--white); }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--navy);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--gray-400);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 900px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .chichasa-card {
-                grid-template-columns: 1fr;
-            }
+            .about-grid, .chichasa-card { grid-template-columns: 1fr; }
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-photo { display: none; }
+            .value-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            .hero {
-                padding: 4rem 1.5rem 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .hero-meta {
-                flex-direction: column;
-                gap: 1rem;
-            }
+            .hero { padding: 3.5rem 1.5rem 3rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero .subtitle { font-size: 1.05rem; }
+            .hero-meta { flex-wrap: wrap; gap: 1rem; }
 
             nav ul {
                 display: none;
@@ -887,33 +1089,13 @@
                 border-bottom: 1px solid rgba(201, 168, 76, 0.15);
             }
 
-            nav ul.open {
-                display: flex;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-
-            section {
-                padding: 3.5rem 1.5rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .exp-card-header {
-                flex-direction: column;
-            }
-
-            .chichasa-card {
-                padding: 2rem;
-            }
+            nav ul.open { display: flex; }
+            .mobile-toggle { display: block; }
+            .section-title { font-size: 1.75rem; }
+            section { padding: 3.5rem 1.5rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .exp-card-header { flex-direction: column; }
+            .chichasa-card { padding: 2rem; }
         }
 
         /* ==================== ANIMATIONS ==================== */
@@ -934,17 +1116,18 @@
     <!-- ==================== NAVIGATION ==================== -->
     <nav>
         <div class="nav-inner">
-            <div class="logo">MCK<span>.</span></div>
+            <a href="#" class="logo"><img src="headshot.jpg" alt="Mirriam Chikwamu"> Mirriam Chikwamu<span>.</span></a>
             <button class="mobile-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Research</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#teaching">Teaching</a></li>
                 <li><a href="#leadership">Leadership</a></li>
                 <li><a href="#chichasa">Chichasa</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="#writing">Writing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -953,28 +1136,41 @@
     <!-- ==================== HERO ==================== -->
     <section class="hero">
         <div class="hero-inner">
-            <div class="hero-label">Open to Opportunities</div>
-            <h1>Mirriam Chisunta Chikwamu</h1>
-            <div class="subtitle">Statistics & Machine Learning | Applied Research</div>
-            <p class="summary">Building rigorous analytical solutions that produce reliable insights from real-world data. Experienced across sports analytics, economic statistics, computational biology, and symbolic AI.</p>
-            <div class="hero-actions">
-                <a href="#contact" class="btn-primary">Get in Touch</a>
-                <a href="#" class="btn-outline" id="resume-download">Download Resume</a>
-                <!-- TODO: Replace "#" with your actual resume PDF link -->
+            <div class="hero-text">
+                <div class="hero-label">Open to Opportunities</div>
+                <h1>Mirriam Chisunta Chikwamu</h1>
+                <div class="pronunciation">chee-soon-tah chee-qua-moo</div>
+                <div class="subtitle">Statistics & Machine Learning | Applied Research</div>
+                <p class="roles-tagline">
+                    <strong>Seeking:</strong> Data Scientist, ML/AI Engineer, Applied Scientist, Business/Data Analyst, Actuarial Analyst, Catastrophe Risk Modeler, Management Consultant
+                </p>
+                <p class="summary">Building rigorous analytical solutions from real-world data. Experienced across sports analytics, economic statistics, computational biology, symbolic AI, and K-12 education.</p>
+                <div class="currently">
+                    <span class="currently-dot"></span> Currently teaching mathematics at Great Hearts Trivium Prep while seeking full-time opportunities in data science, analytics, and applied research.
+                </div>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">Get in Touch</a>
+                    <a href="#" class="btn-outline" id="resume-download">Download Resume</a>
+                    <!-- TODO: Replace "#" with your actual resume PDF link -->
+                </div>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <strong>5+</strong> Research Projects
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>4</strong> Conference Talks
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>4+</strong> Industries
+                    </div>
+                    <div class="hero-meta-item">
+                        <strong>5+</strong> Years Teaching
+                    </div>
+                </div>
             </div>
-            <div class="hero-meta">
-                <div class="hero-meta-item">
-                    <strong>5+</strong> Research Projects
-                </div>
-                <div class="hero-meta-item">
-                    <strong>4</strong> Conference Presentations
-                </div>
-                <div class="hero-meta-item">
-                    <strong>4</strong> Industries
-                </div>
-                <div class="hero-meta-item">
-                    <strong>3.8</strong> GPA
-                </div>
+
+            <div class="hero-photo">
+                <img src="headshot.jpg" alt="Mirriam Chisunta Chikwamu">
             </div>
         </div>
     </section>
@@ -988,24 +1184,45 @@
             </div>
             <div class="about-grid fade-in">
                 <div class="about-text">
-                    <p>I'm a Mathematics-Statistics graduate from Whitman College, currently working as a Symbolic AI Research Trainee at the Naval Postgraduate School through the Oak Ridge Institute for Science and Education. My work spans formal logic, machine learning, economic statistics, and computational biology.</p>
-                    <p>Originally from Zambia, I bring a cross-cultural perspective to problem-solving. My career interests range from data science and ML/AI engineering to consulting and actuarial science -- any role where I can use quantitative methods to drive meaningful decisions and positive impact.</p>
-                    <p>I believe strongly in making technical knowledge accessible. Whether redesigning survey forms at the Zambia Statistical Agency or translating automated theorem proofs into plain language for military stakeholders, I focus on bridging the gap between rigorous methods and practical understanding.</p>
+                    <p>I'm a Mathematics-Statistics graduate and current Mathematics Substitute Teacher at Great Hearts Trivium Prep. I also volunteer as a Symbolic AI Research Trainee at the Naval Postgraduate School through the Oak Ridge Institute for Science and Education, where I integrated large language models with formal logic systems for military stakeholders.</p>
+                    <p>Originally from Zambia, I bring a cross-cultural perspective to everything I do. Growing up with frequent power outages caused by climate-driven disruptions to hydroelectric infrastructure gave me a personal understanding of the urgency around energy security and sustainability. That experience, combined with co-founding a climate-focused NGO, drives my interest in using data to advance equitable, sustainable solutions.</p>
+                    <p>My work spans sports analytics, economic modeling, computational biology, symbolic AI, and education. I thrive in interdisciplinary environments where I can adapt quickly to new domains and translate complex quantitative insights into actionable decisions for diverse audiences.</p>
+
+                    <!-- What I Bring -->
+                    <div class="value-grid">
+                        <div class="value-card">
+                            <h4>Analytical Rigor</h4>
+                            <p>Strong quantitative foundation in statistics, ML, and econometrics. Comfortable with ambiguity and messy data.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Cross-Domain Adaptability</h4>
+                            <p>Proven ability to ramp up fast across industries -- from protein engineering to NHL analytics to national economic statistics.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Multicultural Lens</h4>
+                            <p>Deep understanding of working across cultures. Energetic communicator who builds bridges between technical and non-technical audiences.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Impact-Driven</h4>
+                            <p>Motivated by sustainability, equitable access, and making data work for people -- not just institutions.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-highlights">
-                    <div class="highlight-card">
+
+                <div class="about-sidebar">
+                    <div class="sidebar-card">
                         <h4>Education</h4>
-                        <p>B.A. Mathematics-Statistics, Whitman College (3.8 GPA). Minor: Economics. Transferred from Albertus Magnus College (3.97 GPA).</p>
+                        <p>B.A. Mathematics-Statistics, Whitman College (3.79 GPA). Minor: Economics. Dean's List 5 semesters.</p>
                     </div>
-                    <div class="highlight-card">
+                    <div class="sidebar-card">
                         <h4>Current Role</h4>
-                        <p>Symbolic AI Research Trainee at Naval Postgraduate School (ORISE), Monterey, CA.</p>
+                        <p>Mathematics Substitute Teacher, Great Hearts Trivium Prep, Goodyear, AZ</p>
                     </div>
-                    <div class="highlight-card">
-                        <h4>Interests</h4>
-                        <p>Data Science, ML/AI, Applied Statistics, Consulting, Actuarial Science, Catastrophe Risk Modeling.</p>
+                    <div class="sidebar-card">
+                        <h4>Previous Role</h4>
+                        <p>Symbolic AI Research Trainee, Naval Postgraduate School (ORISE)</p>
                     </div>
-                    <div class="highlight-card">
+                    <div class="sidebar-card">
                         <h4>Location</h4>
                         <p>Goodyear, AZ</p>
                     </div>
@@ -1014,42 +1231,38 @@
         </div>
     </section>
 
-    <!-- ==================== EXPERIENCE ==================== -->
+    <!-- ==================== PROFESSIONAL EXPERIENCE ==================== -->
     <section id="experience">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Experience</div>
-                <h2 class="section-title">Research & Professional Experience</h2>
+                <h2 class="section-title">Professional Experience</h2>
             </div>
 
             <div class="exp-card fade-in">
                 <div class="exp-card-header">
                     <div>
-                        <h3>Symbolic AI Research Trainee</h3>
-                        <div class="org">Naval Postgraduate School | Oak Ridge Institute for Science and Education</div>
+                        <h3>Mathematics Substitute Teacher</h3>
+                        <div class="org">Great Hearts Trivium Prep</div>
                     </div>
-                    <span class="date">Jul 2025 - Present</span>
+                    <span class="date">2026 - Present</span>
                 </div>
                 <ul>
-                    <li>Engineered formal logic representations by translating natural language into SUO-KIF axioms for SUMO ontology, with approved definitions integrated into SigmaKEE's live production instance</li>
-                    <li>Built Java-based proof translation system converting ATP outputs into Basic English, enabling non-technical military stakeholders to interpret formally verified reasoning</li>
-                    <li>Evaluated 400+ sentences for semantic validity to create labeled dataset for validating logical inference pipelines</li>
-                    <li>Integrated LLMs via Ollama to paraphrase ATP proofs while maintaining mathematical guarantees</li>
+                    <li>Delivering mathematics instruction across grade levels, reinforcing foundational and advanced concepts through a classical education framework</li>
+                    <li>Adapting lesson plans to diverse learning needs, building on years of tutoring and mentoring experience</li>
                 </ul>
                 <div class="tags">
-                    <span class="tag">Formal Logic</span>
-                    <span class="tag">Java</span>
-                    <span class="tag">LLM Integration</span>
-                    <span class="tag">NLP</span>
-                    <span class="tag">SUMO / SUO-KIF</span>
+                    <span class="tag">Mathematics Education</span>
+                    <span class="tag">K-12</span>
+                    <span class="tag">Classical Education</span>
                 </div>
             </div>
 
             <div class="exp-card fade-in">
                 <div class="exp-card-header">
                     <div>
-                        <h3>Statistician Intern</h3>
-                        <div class="org">Zambia Statistical Agency | Economic and Financial Statistics Division</div>
+                        <h3>Economic and Financial Statistician Intern</h3>
+                        <div class="org">Zambia Statistical Agency &amp; Bank of Zambia</div>
                     </div>
                     <span class="date">Aug 2024 - Sept 2024</span>
                 </div>
@@ -1063,6 +1276,77 @@
                     <span class="tag">CPI Analysis</span>
                     <span class="tag">SQL</span>
                     <span class="tag">Data Quality</span>
+                </div>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-card-header">
+                    <div>
+                        <h3>Data Analysis Micro Intern</h3>
+                        <div class="org">Global Forest Watch with iXperience</div>
+                    </div>
+                    <span class="date">Jan 2022</span>
+                </div>
+                <ul>
+                    <li>Analyzed global deforestation patterns using Python and SQL, identifying top 10 countries with highest tree cover loss rates</li>
+                    <li>Synthesized findings into report with actionable conservation insights and policy recommendations</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Conservation</span>
+                </div>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-card-header">
+                    <div>
+                        <h3>Writer & Editor, Technology Services</h3>
+                        <div class="org">Whitman College</div>
+                    </div>
+                    <span class="date">Aug 2023 - Dec 2024</span>
+                </div>
+                <ul>
+                    <li>Led development of comprehensive technology guides and recommendations through cross-functional collaboration</li>
+                    <li>Researched and evaluated emerging software and AI tools to enhance digital literacy across campus</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Technical Writing</span>
+                    <span class="tag">Digital Literacy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RESEARCH EXPERIENCE ==================== -->
+    <section id="research">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Research</div>
+                <h2 class="section-title">Research Experience</h2>
+            </div>
+
+            <div class="exp-card fade-in">
+                <div class="exp-card-header">
+                    <div>
+                        <h3>Symbolic AI Research Trainee</h3>
+                        <div class="org">Naval Postgraduate School | Oak Ridge Institute for Science and Education</div>
+                    </div>
+                    <span class="date">Jul 2025 - Dec 2025</span> <span class="tag" style="background: rgba(201,168,76,0.15); color: var(--gold); font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 50px; margin-left: 0.5rem;">Volunteer</span>
+                </div>
+                <ul>
+                    <li>Engineered formal logic representations by translating natural language into SUO-KIF axioms for SUMO ontology, with approved definitions integrated into SigmaKEE's live production instance</li>
+                    <li>Built Java-based proof translation system converting ATP outputs into Basic English, enabling non-technical military stakeholders to interpret formally verified reasoning</li>
+                    <li>Evaluated 400+ sentences for semantic validity to create labeled dataset for validating logical inference pipelines</li>
+                    <li>Integrated LLMs via Ollama to paraphrase ATP proofs while maintaining mathematical guarantees</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Formal Logic</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">LLM Integration</span>
+                    <span class="tag">NLP</span>
+                    <span class="tag">SUMO / SUO-KIF</span>
                 </div>
             </div>
 
@@ -1106,43 +1390,6 @@
                     <span class="tag">Computational Biology</span>
                 </div>
             </div>
-
-            <div class="exp-card fade-in">
-                <div class="exp-card-header">
-                    <div>
-                        <h3>Data Analysis Micro Intern</h3>
-                        <div class="org">Global Forest Watch with iXperience</div>
-                    </div>
-                    <span class="date">Jan 2022</span>
-                </div>
-                <ul>
-                    <li>Analyzed global deforestation patterns using Python and SQL, identifying top 10 countries with highest tree cover loss rates</li>
-                    <li>Synthesized findings into report with actionable conservation insights and policy recommendations</li>
-                </ul>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">Data Analysis</span>
-                </div>
-            </div>
-
-            <div class="exp-card fade-in">
-                <div class="exp-card-header">
-                    <div>
-                        <h3>Writer & Editor, Technology Services</h3>
-                        <div class="org">Whitman College</div>
-                    </div>
-                    <span class="date">Aug 2023 - Dec 2024</span>
-                </div>
-                <ul>
-                    <li>Led development of comprehensive technology guides and recommendations through cross-functional collaboration</li>
-                    <li>Researched and evaluated emerging software and AI tools to enhance digital literacy across campus</li>
-                </ul>
-                <div class="tags">
-                    <span class="tag">Technical Writing</span>
-                    <span class="tag">Digital Literacy</span>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1160,16 +1407,14 @@
                     <div class="project-type">Senior Thesis</div>
                     <h3>Predicting NHL Forward Performance Using Random Forests</h3>
                     <div class="project-meta">Whitman College | Sep - Dec 2024</div>
-                    <p>Built Random Forest models (R&sup2; = 0.90) predicting NHL forward salary cap, contract length, and performance consistency, outperforming traditional ARIMA (R&sup2; = 0.60). Integrated Tango-adjusted metrics and custom Weighted Mean Change framework. Built interactive RShiny dashboard for stakeholder exploration.</p>
+                    <p>Built Random Forest models (R&sup2; = 0.90) predicting NHL forward salary cap, contract length, and performance consistency, outperforming ARIMA (R&sup2; = 0.60). Built interactive RShiny dashboard for stakeholder exploration.</p>
                     <div class="tags">
                         <span class="tag">Random Forests</span>
                         <span class="tag">R</span>
                         <span class="tag">RShiny</span>
-                        <span class="tag">Sports Analytics</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link">View Project &rarr;</a>
-                        <!-- TODO: Replace with actual project link -->
                     </div>
                 </div>
 
@@ -1177,7 +1422,7 @@
                     <div class="project-type">Hackathon Winner</div>
                     <h3>Digital Heritage Archive</h3>
                     <div class="project-meta">Whitman College Hackathon | Apr 2024</div>
-                    <p>Built interactive world map and cultural heritage recommendation system by fine-tuning Gemini Vision Pro 1.2 for image-based destination recognition. Won Whitman College's inaugural hackathon. Led cross-functional team through execution and presented AI adoption strategy.</p>
+                    <p>Built interactive world map and cultural heritage recommendation system by fine-tuning Gemini Vision Pro 1.2. Won Whitman College's inaugural hackathon. Led cross-functional team and presented AI adoption strategy.</p>
                     <div class="tags">
                         <span class="tag">Gemini API</span>
                         <span class="tag">Streamlit</span>
@@ -1186,7 +1431,6 @@
                     <div class="project-links">
                         <a href="#" class="project-link">GitHub &rarr;</a>
                         <a href="#" class="project-link">Live App &rarr;</a>
-                        <!-- TODO: Replace with actual links -->
                     </div>
                 </div>
 
@@ -1194,7 +1438,7 @@
                     <div class="project-type">Research</div>
                     <h3>NHL Player Consistency Metrics</h3>
                     <div class="project-meta">Carnegie Mellon University | Summer 2024</div>
-                    <p>Developed Weighted Mean Change consistency metric using PCA-weighted z-scores and 4-quadrant clustering to categorize 200+ NHL forwards by skill vs. consistency. Collaboration with Pittsburgh Penguins R&D.</p>
+                    <p>Developed Weighted Mean Change consistency metric using PCA-weighted z-scores and 4-quadrant clustering for 200+ NHL forwards. Collaboration with Pittsburgh Penguins R&D.</p>
                     <div class="tags">
                         <span class="tag">PCA</span>
                         <span class="tag">Clustering</span>
@@ -1209,7 +1453,7 @@
                     <div class="project-type">Applied Statistics</div>
                     <h3>Zambian Economic & Climate Analysis</h3>
                     <div class="project-meta">Whitman College + ZamStats | 2023 - 2024</div>
-                    <p>Applied statistical methods to Zambian contexts: cholera outbreak modeling, maize output analysis, climate shock impact studies, and CPI data quality improvement. Partnership with Zambia Statistical Agency.</p>
+                    <p>Applied statistical methods to Zambian contexts: cholera outbreak modeling, maize output analysis, climate shock impact studies, and CPI data quality improvement.</p>
                     <div class="tags">
                         <span class="tag">Public Health</span>
                         <span class="tag">Agriculture</span>
@@ -1229,20 +1473,26 @@
                     </div>
                 </div>
 
-                <!-- ADD NEW PROJECTS HERE
+                <!--
+                ========== ADD NEW PROJECTS BELOW ==========
+                Copy this template, paste it here, and fill in your details:
+
                 <div class="project-card fade-in">
-                    <div class="project-type">Category</div>
-                    <h3>Project Title</h3>
-                    <div class="project-meta">Organization | Date</div>
-                    <p>Description of the project.</p>
+                    <div class="project-type">Category (e.g., Machine Learning, Data Analysis)</div>
+                    <h3>Your Project Title</h3>
+                    <div class="project-meta">Organization or Course | Month Year</div>
+                    <p>2-3 sentence description: What did you do? What tools/methods? What was the result or impact?</p>
                     <div class="tags">
-                        <span class="tag">Tag1</span>
-                        <span class="tag">Tag2</span>
+                        <span class="tag">Tool/Language</span>
+                        <span class="tag">Method</span>
+                        <span class="tag">Domain</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">View Project &rarr;</a>
+                        <a href="YOUR_LINK_HERE" class="project-link">View Project &rarr;</a>
+                        <a href="YOUR_GITHUB_LINK" class="project-link">GitHub &rarr;</a>
                     </div>
                 </div>
+                ========== END TEMPLATE ==========
                 -->
             </div>
         </div>
@@ -1293,7 +1543,7 @@
                         <span class="skill-tag">PCA</span>
                         <span class="skill-tag">SVMs</span>
                         <span class="skill-tag">k-NN</span>
-                        <span class="skill-tag">Clustering (k-Means, DBSCAN, Hierarchical)</span>
+                        <span class="skill-tag">Clustering</span>
                         <span class="skill-tag">Hypothesis Testing</span>
                         <span class="skill-tag">DOE</span>
                     </div>
@@ -1349,11 +1599,22 @@
                 <h2 class="section-title">A Passion for Making Knowledge Accessible</h2>
             </div>
 
+            <div class="teaching-quote fade-in">
+                "I teach because I learn. The best teachers are lifelong learners who believe that every student deserves someone who refuses to give up on them."
+            </div>
+            <div class="teaching-quote-attr">-- Mirriam Chisunta Chikwamu</div>
+
             <p class="teaching-intro fade-in">
-                From tutoring neighborhood children in Zambia to leading supported study halls in college, I've always believed that education is most powerful when it meets people where they are. My teaching experience spans mathematics, technology, and mentoring -- each role reinforcing my commitment to making complex ideas understandable and actionable.
+                From tutoring neighborhood children in Zambia to leading supported study halls in college to substitute teaching today, my teaching journey has always been about meeting people where they are. Every role reinforces the same conviction: complex ideas become powerful when they become accessible.
             </p>
 
             <div class="teaching-grid">
+                <div class="teaching-card fade-in">
+                    <h4>Mathematics Substitute Teacher</h4>
+                    <div class="role">Great Hearts Trivium Prep | 2026 - Present</div>
+                    <p>Delivering mathematics instruction across grade levels within a classical education framework. Adapting lesson plans to diverse learning needs and building student confidence in quantitative reasoning.</p>
+                </div>
+
                 <div class="teaching-card fade-in">
                     <h4>Mathematics Tutor & Teaching Assistant</h4>
                     <div class="role">Whitman College | Aug 2023 - Dec 2024</div>
@@ -1383,11 +1644,84 @@
                     <div class="role">LEAP | Summer 2022</div>
                     <p>Led groups of 20+ children as teacher, mentor, and role model. Mentored high school junior counselors. Trained in CPR, conflict resolution, and trauma-informed education.</p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="teaching-card fade-in">
-                    <h4>Swimming Instructor</h4>
-                    <div class="role">Community Service</div>
-                    <p>Taught swimming lessons to underrepresented kids, breaking down barriers to aquatic sports and building water safety skills in underserved communities.</p>
+    <!-- ==================== FUN FACTS ==================== -->
+    <section id="fun-facts">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Get to Know Me</div>
+                <h2 class="section-title">Fun Facts</h2>
+            </div>
+
+            <div class="facts-grid fade-in">
+                <div class="fact-card">
+                    <div class="fact-icon">&#127946;</div>
+                    <h4>NCAA Swimmer</h4>
+                    <p>Division III Women's Swimming. 25+ hours/week of training. All-Academic Team 2021 & 2022.</p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-icon">&#127859;</div>
+                    <h4>Global Chef</h4>
+                    <p>I can cook dishes from every continent. Food is how I connect with people and cultures.</p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-icon">&#9986;</div>
+                    <h4>Self-Taught Seamstress</h4>
+                    <p>I analyze fashion I like and create my own versions. Pattern recognition extends beyond data.</p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-icon">&#9992;</div>
+                    <h4>Explorer</h4>
+                    <p>Visited 23 U.S. states as an international student from Zambia. Always seeking new perspectives.</p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-icon">&#9998;</div>
+                    <h4>Poet</h4>
+                    <p>From odes about data to reflections on identity and justice. Writing is how I process the world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BEYOND THE NUMBERS ==================== -->
+    <section id="beyond">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Off the Clock</div>
+                <h2 class="section-title">Beyond the Numbers</h2>
+                <p class="section-subtitle">What I do when I'm not teaching, researching, or building models.</p>
+            </div>
+
+            <div class="beyond-grid fade-in">
+                <div class="beyond-card">
+                    <div class="beyond-icon">&#128214;</div>
+                    <h4>Reading & Writing</h4>
+                    <p>Poetry, non-fiction, and anything that challenges how I see the world. I journal daily and write poetry when inspiration strikes.</p>
+                </div>
+
+                <div class="beyond-card">
+                    <div class="beyond-icon">&#127859;</div>
+                    <h4>Cooking & Hosting</h4>
+                    <p>Experimenting with recipes from every continent. I created the inaugural Afro-Giving event at Whitman College to share African heritage through food.</p>
+                </div>
+
+                <div class="beyond-card">
+                    <div class="beyond-icon">&#127946;</div>
+                    <h4>Staying Active</h4>
+                    <p>Swimming, teaching swimming to underrepresented kids, and staying fit. Former NCAA athlete who still trains for the love of movement.</p>
+                </div>
+
+                <div class="beyond-card">
+                    <div class="beyond-icon">&#127793;</div>
+                    <h4>Community & Faith</h4>
+                    <p>Co-leading InterVarsity Christian Fellowship, mentoring, volunteering with Habitat for Humanity, and staying connected to Chichasa's mission in Zambia.</p>
                 </div>
             </div>
         </div>
@@ -1542,37 +1876,41 @@
         </div>
     </section>
 
-    <!-- ==================== BLOG ==================== -->
-    <section id="blog">
+    <!-- ==================== WRITING ==================== -->
+    <section id="writing">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Writing</div>
-                <h2 class="section-title">Blog & Articles</h2>
+                <h2 class="section-title">Words & Reflections</h2>
+                <p class="section-subtitle">Poetry, essays, and reflections on data, identity, justice, and the spaces in between.</p>
             </div>
 
-            <div class="blog-placeholder fade-in">
-                <p>Project write-ups, technical articles, and reflections coming soon.</p>
-                <div class="coming">Check back for updates</div>
-            </div>
-
-            <!-- ADD BLOG POSTS HERE when ready:
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-type">Article</div>
-                    <h3>Blog Post Title</h3>
-                    <div class="project-meta">Date</div>
-                    <p>Brief description or excerpt.</p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Read More &rarr;</a>
-                    </div>
+            <div class="writing-grid fade-in">
+                <div class="writing-card">
+                    <div class="writing-type">Poetry</div>
+                    <h4>Coming Soon</h4>
+                    <p>Selected poems on data, identity, and the intersection of quantitative thinking with lived experience.</p>
                 </div>
+
+                <div class="writing-card">
+                    <div class="writing-type">Reflections</div>
+                    <h4>Coming Soon</h4>
+                    <p>Essays on education, sustainability, and navigating the world as a Zambian mathematician in America.</p>
+                </div>
+
+                <!-- ADD WRITING PIECES HERE when ready:
+                <div class="writing-card">
+                    <div class="writing-type">Poetry</div>
+                    <h4>Poem Title</h4>
+                    <p>First line or excerpt of the poem...</p>
+                </div>
+                -->
             </div>
-            -->
         </div>
     </section>
 
     <!-- ==================== CONFERENCES ==================== -->
-    <section id="conferences" style="background: var(--off-white);">
+    <section id="conferences">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Presentations</div>
@@ -1637,9 +1975,12 @@
         </div>
     </section>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">&#8593;</button>
+
     <!-- ==================== FOOTER ==================== -->
     <footer>
-        <p>&copy; 2025 Mirriam Chisunta Chikwamu. Built with purpose.</p>
+        <p>&copy; <span id="footer-year">2025</span> Mirriam Chisunta Chikwamu. Built with purpose.</p>
     </footer>
 
     <!-- ==================== SCRIPTS ==================== -->
@@ -1652,7 +1993,6 @@
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-                // Close mobile nav
                 document.querySelector('nav ul').classList.remove('open');
             });
         });
@@ -1667,6 +2007,19 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Back to top button visibility
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Auto-update footer year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
